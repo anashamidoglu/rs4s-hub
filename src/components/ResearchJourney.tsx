@@ -55,18 +55,18 @@ export const ResearchJourney: React.FC<ResearchJourneyProps> = ({ onStepClick })
   ];
 
   return (
-    <section className="mt-8 mb-10 text-left">
+    <section className="my-2 sm:my-3 text-left">
       {/* Section Title with Star icon */}
-      <div className="flex items-center gap-2 mb-6">
-        <Star className="w-4 h-4 text-[#2563EB] stroke-[2.2] fill-transparent" />
-        <h3 className="text-base sm:text-lg font-bold text-slate-900 tracking-tight">
+      <div className="flex items-center gap-1.5 mb-2">
+        <Star className="w-3.5 h-3.5 text-[#2563EB] stroke-[2.2] fill-transparent" />
+        <h3 className="text-xs sm:text-sm font-bold text-slate-900 tracking-tight">
           Where are you in your research journey?
         </h3>
       </div>
 
       {/* Horizontal Connected Steps Container */}
-      <div className="overflow-x-auto pb-4 pt-1 -mx-2 px-2 scrollbar-none">
-        <div className="flex items-center min-w-[760px] justify-between gap-1 sm:gap-2">
+      <div className="overflow-x-auto pb-1 pt-0.5 -mx-1 px-1 scrollbar-none">
+        <div className="flex items-center min-w-[680px] justify-between gap-1">
           {steps.map((step, index) => {
             const Icon = step.icon;
             const isLast = index === steps.length - 1;
@@ -74,14 +74,14 @@ export const ResearchJourney: React.FC<ResearchJourneyProps> = ({ onStepClick })
             return (
               <React.Fragment key={step.id}>
                 {/* Step Item */}
-                <div className="flex-1 flex flex-col items-center text-center px-1 group">
+                <div className="flex-1 flex flex-col items-center text-center px-0.5 group">
                   {/* Icon */}
-                  <div className="w-10 h-10 rounded-full flex items-center justify-center text-slate-700 group-hover:text-[#2563EB] group-hover:scale-110 transition-all duration-200 mb-2">
-                    <Icon className="w-6 h-6 stroke-[1.8]" />
+                  <div className="w-7 h-7 sm:w-8 h-8 rounded-full flex items-center justify-center text-slate-700 group-hover:text-[#2563EB] group-hover:scale-105 transition-all duration-150 mb-1">
+                    <Icon className="w-4 h-4 sm:w-4.5 sm:h-4.5 stroke-[1.8]" />
                   </div>
 
                   {/* Description label */}
-                  <p className="text-xs text-slate-600 font-normal leading-snug min-h-[32px] max-w-[110px] flex items-center justify-center mb-1.5">
+                  <p className="text-[10px] sm:text-[11px] text-slate-600 font-normal leading-tight min-h-[26px] max-w-[100px] flex items-center justify-center mb-1">
                     {step.label}
                   </p>
 
@@ -89,7 +89,7 @@ export const ResearchJourney: React.FC<ResearchJourneyProps> = ({ onStepClick })
                   <button
                     type="button"
                     onClick={() => onStepClick(step.label, step.action)}
-                    className="text-xs sm:text-[13px] font-semibold text-[#2563EB] hover:text-[#1D4ED8] hover:underline underline-offset-3 decoration-1 cursor-pointer transition-colors py-0.5 px-1 rounded-sm focus:outline-none focus:ring-1 focus:ring-blue-400"
+                    className="text-[11px] sm:text-xs font-semibold text-[#2563EB] hover:text-[#1D4ED8] hover:underline underline-offset-2 decoration-1 cursor-pointer transition-colors py-0.5 px-0.5 rounded-xs focus:outline-none focus:ring-1 focus:ring-blue-400"
                   >
                     {step.action}
                   </button>
@@ -97,8 +97,8 @@ export const ResearchJourney: React.FC<ResearchJourneyProps> = ({ onStepClick })
 
                 {/* Arrow connector between steps */}
                 {!isLast && (
-                  <div className="shrink-0 text-slate-300 px-0.5 sm:px-1 mb-6 select-none pointer-events-none">
-                    <ArrowRight className="w-4 h-4 stroke-[1.75]" />
+                  <div className="shrink-0 text-slate-300 px-0.5 mb-4 select-none pointer-events-none">
+                    <ArrowRight className="w-3.5 h-3.5 stroke-[1.75]" />
                   </div>
                 )}
               </React.Fragment>

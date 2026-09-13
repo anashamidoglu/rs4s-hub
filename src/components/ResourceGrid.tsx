@@ -16,9 +16,13 @@ interface ResourceCard {
   description: string;
   buttonText: string;
   icon: React.ElementType;
+  cardBg: string;
+  cardBorder: string;
   iconBg: string;
   iconColor: string;
-  btnHoverBorder: string;
+  btnBorder: string;
+  btnText: string;
+  btnHover: string;
 }
 
 interface ResourceGridProps {
@@ -33,9 +37,13 @@ export const ResourceGrid: React.FC<ResourceGridProps> = ({ onCardAction }) => {
       description: 'Build your research knowledge with videos, guides and learning pathways.',
       buttonText: 'Explore Learn',
       icon: Brain,
+      cardBg: 'bg-[#F4F8FD]',
+      cardBorder: 'border-[#D9E7F9]',
       iconBg: 'bg-[#DBEAFE]',
-      iconColor: 'text-[#2563EB]',
-      btnHoverBorder: 'hover:border-blue-300 hover:bg-blue-50/50',
+      iconColor: 'text-[#1D4ED8]',
+      btnBorder: 'border-[#BFDBFE]',
+      btnText: 'text-[#1D4ED8]',
+      btnHover: 'hover:bg-white hover:border-[#93C5FD]',
     },
     {
       id: 'connect',
@@ -43,9 +51,13 @@ export const ResourceGrid: React.FC<ResourceGridProps> = ({ onCardAction }) => {
       description: 'Find mentors, upper-year guidance and connect with researchers.',
       buttonText: 'Explore Connect',
       icon: Users,
+      cardBg: 'bg-[#F7F2FD]',
+      cardBorder: 'border-[#EAE0FC]',
       iconBg: 'bg-[#EDE9FE]',
       iconColor: 'text-[#7C3AED]',
-      btnHoverBorder: 'hover:border-purple-300 hover:bg-purple-50/50',
+      btnBorder: 'border-[#DDD6FE]',
+      btnText: 'text-[#7C3AED]',
+      btnHover: 'hover:bg-white hover:border-[#C4B5FD]',
     },
     {
       id: 'do-research',
@@ -53,9 +65,13 @@ export const ResourceGrid: React.FC<ResourceGridProps> = ({ onCardAction }) => {
       description: 'Find projects, form teams and get support for your research journey.',
       buttonText: 'Explore Do Research',
       icon: Microscope,
+      cardBg: 'bg-[#FCEDEA]',
+      cardBorder: 'border-[#FBD9D3]',
       iconBg: 'bg-[#FFEDD5]',
       iconColor: 'text-[#EA580C]',
-      btnHoverBorder: 'hover:border-orange-300 hover:bg-orange-50/50',
+      btnBorder: 'border-[#FED7AA]',
+      btnText: 'text-[#EA580C]',
+      btnHover: 'hover:bg-white hover:border-[#FDBA74]',
     },
     {
       id: 'opportunities',
@@ -63,9 +79,13 @@ export const ResourceGrid: React.FC<ResourceGridProps> = ({ onCardAction }) => {
       description: 'Discover research opportunities, conferences, grants, competitions and more.',
       buttonText: 'Explore Opportunities',
       icon: Briefcase,
+      cardBg: 'bg-[#FEF6EC]',
+      cardBorder: 'border-[#FDEAC9]',
       iconBg: 'bg-[#FEF3C7]',
       iconColor: 'text-[#D97706]',
-      btnHoverBorder: 'hover:border-amber-300 hover:bg-amber-50/50',
+      btnBorder: 'border-[#FDE68A]',
+      btnText: 'text-[#D97706]',
+      btnHover: 'hover:bg-white hover:border-[#FCD34D]',
     },
   ];
 
@@ -76,9 +96,13 @@ export const ResourceGrid: React.FC<ResourceGridProps> = ({ onCardAction }) => {
       description: 'Share your research, present your work and be part of the RS4S showcase.',
       buttonText: 'Explore Share',
       icon: Mic,
+      cardBg: 'bg-[#FCEDF5]',
+      cardBorder: 'border-[#FAD2E8]',
       iconBg: 'bg-[#FCE7F3]',
       iconColor: 'text-[#DB2777]',
-      btnHoverBorder: 'hover:border-pink-300 hover:bg-pink-50/50',
+      btnBorder: 'border-[#FBCFE8]',
+      btnText: 'text-[#DB2777]',
+      btnHover: 'hover:bg-white hover:border-[#F9A8D4]',
     },
     {
       id: 'upcoming-events',
@@ -86,9 +110,13 @@ export const ResourceGrid: React.FC<ResourceGridProps> = ({ onCardAction }) => {
       description: "See what's coming up and register for RS4S sessions and activities.",
       buttonText: 'View Calendar',
       icon: Calendar,
+      cardBg: 'bg-[#EEF7FD]',
+      cardBorder: 'border-[#C8EBFD]',
       iconBg: 'bg-[#CFFAFE]',
       iconColor: 'text-[#0284C7]',
-      btnHoverBorder: 'hover:border-cyan-300 hover:bg-cyan-50/50',
+      btnBorder: 'border-[#BAE6FD]',
+      btnText: 'text-[#0284C7]',
+      btnHover: 'hover:bg-white hover:border-[#7DD3FC]',
     },
     {
       id: 'resources',
@@ -96,9 +124,13 @@ export const ResourceGrid: React.FC<ResourceGridProps> = ({ onCardAction }) => {
       description: 'Access templates, useful links and research tools to help you succeed.',
       buttonText: 'View Resources',
       icon: Folder,
+      cardBg: 'bg-[#F1F5FB]',
+      cardBorder: 'border-[#DCE4F0]',
       iconBg: 'bg-[#E2E8F0]',
       iconColor: 'text-[#475569]',
-      btnHoverBorder: 'hover:border-slate-300 hover:bg-slate-100/50',
+      btnBorder: 'border-[#CBD5E1]',
+      btnText: 'text-[#475569]',
+      btnHover: 'hover:bg-white hover:border-[#94A3B8]',
     },
   ];
 
@@ -107,36 +139,36 @@ export const ResourceGrid: React.FC<ResourceGridProps> = ({ onCardAction }) => {
     return (
       <div
         key={card.id}
-        className="bg-white rounded-2xl border border-slate-200/80 p-5 flex flex-col justify-between shadow-2xs hover:shadow-md transition-all duration-200 hover:-translate-y-0.5 text-left group"
+        className={`${card.cardBg} ${card.cardBorder} rounded-xl border p-2.5 sm:p-3 flex flex-col justify-between shadow-2xs hover:shadow-xs transition-all duration-150 text-left group`}
       >
         <div>
           {/* Header with Icon and Title */}
-          <div className="flex items-center gap-3.5 mb-3">
+          <div className="flex items-center gap-2.5 mb-1.5">
             <div
-              className={`w-11 h-11 rounded-2xl ${card.iconBg} flex items-center justify-center shrink-0 shadow-2xs transition-transform group-hover:scale-105`}
+              className={`w-7 h-7 sm:w-8 sm:h-8 rounded-lg ${card.iconBg} flex items-center justify-center shrink-0 shadow-2xs transition-transform group-hover:scale-105`}
             >
-              <Icon className={`w-6 h-6 ${card.iconColor} stroke-[1.9]`} />
+              <Icon className={`w-3.5 h-3.5 sm:w-4 sm:h-4 ${card.iconColor} stroke-[2]`} />
             </div>
-            <h4 className="text-base sm:text-[17px] font-bold text-slate-900 tracking-tight">
+            <h4 className="text-xs sm:text-[13px] font-bold text-slate-900 tracking-tight leading-tight">
               {card.title}
             </h4>
           </div>
 
           {/* Card Description */}
-          <p className="text-xs sm:text-[13px] text-slate-600 leading-relaxed min-h-[38px]">
+          <p className="text-[10px] sm:text-[11px] text-slate-600 leading-snug min-h-[28px] line-clamp-2">
             {card.description}
           </p>
         </div>
 
         {/* Action Button */}
-        <div className="mt-5 pt-1">
+        <div className="mt-2.5 pt-0.5">
           <button
             type="button"
             onClick={() => onCardAction(card.id, card.title)}
-            className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-slate-200 text-xs sm:text-[13px] font-semibold text-slate-700 hover:text-slate-950 transition-all duration-150 cursor-pointer ${card.btnHoverBorder}`}
+            className={`inline-flex items-center gap-1 px-2.5 py-1 rounded-md border bg-white/70 backdrop-blur-2xs text-[10px] sm:text-[11px] font-semibold ${card.btnText} ${card.btnBorder} ${card.btnHover} transition-all duration-150 cursor-pointer shadow-2xs`}
           >
             <span>{card.buttonText}</span>
-            <ArrowRight className="w-3.5 h-3.5 text-slate-500 group-hover:translate-x-0.5 transition-transform" />
+            <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
           </button>
         </div>
       </div>
@@ -144,14 +176,14 @@ export const ResourceGrid: React.FC<ResourceGridProps> = ({ onCardAction }) => {
   };
 
   return (
-    <section className="mt-4 mb-10">
+    <section className="my-1.5 sm:my-2.5">
       {/* Row 1: 4 Cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-2.5 mb-2 sm:mb-2.5">
         {rowOneCards.map(renderCard)}
       </div>
 
       {/* Row 2: 3 Cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-2.5">
         {rowTwoCards.map(renderCard)}
       </div>
     </section>

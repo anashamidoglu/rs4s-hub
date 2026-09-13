@@ -44,7 +44,7 @@ export function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#FDFDFD] flex flex-row relative text-slate-800 font-sans selection:bg-blue-100 selection:text-blue-900">
+    <div className="h-screen w-full bg-[#FFFFFF] flex flex-row relative text-slate-800 font-sans selection:bg-blue-100 selection:text-blue-900 overflow-hidden">
       {/* Toast Notifications */}
       <ToastContainer toasts={toasts} onDismiss={removeToast} />
 
@@ -57,30 +57,28 @@ export function App() {
       />
 
       {/* Main Content Area */}
-      <main
-        className={`flex-1 transition-all duration-300 min-w-0 flex flex-col justify-between ${
-          isSidebarOpen ? 'lg:pl-0' : 'pl-0'
-        }`}
-      >
-        <div className="max-w-6xl mx-auto w-full px-4 sm:px-8 lg:px-12 py-6 sm:py-8">
-          {/* Top Hero Banner */}
-          <HeroSection
-            isSidebarOpen={isSidebarOpen}
-            onToggleSidebar={() => setIsSidebarOpen(true)}
-          />
+      <main className="flex-1 h-full overflow-y-auto flex flex-col justify-between">
+        <div className="max-w-5xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-2 sm:py-3 flex-1 flex flex-col justify-between">
+          <div>
+            {/* Top Hero Banner */}
+            <HeroSection
+              isSidebarOpen={isSidebarOpen}
+              onToggleSidebar={() => setIsSidebarOpen(true)}
+            />
 
-          {/* Research Journey Milestone Flow */}
-          <ResearchJourney onStepClick={handleJourneyStepClick} />
+            {/* Research Journey Milestone Flow */}
+            <ResearchJourney onStepClick={handleJourneyStepClick} />
 
-          {/* Resource & Tools Cards */}
-          <ResourceGrid onCardAction={handleCardAction} />
+            {/* Resource & Tools Cards */}
+            <ResourceGrid onCardAction={handleCardAction} />
+          </div>
 
           {/* Bottom Highlights (3 Columns: Announcements, WhatsApp, Mission) */}
           <BottomHighlights onActionClick={handleBottomAction} />
         </div>
 
         {/* Minimal Footer */}
-        <footer className="w-full border-t border-slate-200/60 py-5 text-center text-xs text-slate-600">
+        <footer className="w-full border-t border-slate-100 py-2 text-center text-[11px] text-slate-500 shrink-0">
           <p>© {new Date().getFullYear()} RS4S Hub — Research by Students, for Students. All rights reserved.</p>
         </footer>
       </main>
