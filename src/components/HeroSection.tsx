@@ -18,7 +18,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           <button
             type="button"
             onClick={onToggleSidebar}
-            className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-semibold text-slate-600 hover:text-slate-900 bg-slate-100 hover:bg-slate-200 transition-colors shadow-2xs cursor-pointer"
+            className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-semibold text-slate-600 hover:text-slate-900 bg-slate-100 hover:bg-slate-200 transition-colors cursor-pointer"
           >
             <PanelLeftOpen className="w-3.5 h-3.5 text-blue-600" />
             <span>Open Sidebar</span>
@@ -47,7 +47,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             <img
               src="/hero.png"
               alt="RS4S Hub Research illustration"
-              className="w-full h-auto object-contain select-none pointer-events-none drop-shadow-2xs"
+              className="w-full h-auto object-contain select-none pointer-events-none"
             />
           </div>
         </div>

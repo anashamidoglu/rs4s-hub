@@ -62,7 +62,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
       >
         <div className="p-3 flex flex-col flex-1 min-w-[14rem] justify-between h-full">
           <div>
-            {/* Top Collapse Toggle (RS4S Hub workspace button removed) */}
+            {/* Top Collapse Toggle */}
             <div className="flex items-center justify-end mb-1">
               <button
                 type="button"
@@ -80,7 +80,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
               <img
                 src="/logo.png"
                 alt="RS4S Logo"
-                className="w-28 sm:w-32 max-w-full h-auto object-contain drop-shadow-xs transition-transform hover:scale-[1.02]"
+                className="w-28 sm:w-32 max-w-full h-auto object-contain"
               />
             </div>
 
@@ -94,9 +94,9 @@ export const Sidebar: React.FC<SidebarProps> = ({
                     key={item.id}
                     type="button"
                     onClick={() => onSelectItem(item.id, item.label)}
-                    className={`flex items-center gap-2.5 px-2.5 py-1.5 rounded-lg text-xs font-medium transition-all text-left cursor-pointer ${
+                    className={`flex items-center gap-2.5 px-2.5 py-1.5 rounded-lg text-xs font-medium transition-colors text-left cursor-pointer ${
                       isActive
-                        ? 'bg-[#EBF3FE] text-[#2563EB] font-semibold shadow-2xs'
+                        ? 'bg-[#EBF3FE] text-[#2563EB] font-semibold'
                         : 'text-slate-700 hover:bg-slate-200/50 hover:text-slate-900'
                     }`}
                   >
@@ -124,7 +124,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                     key={item.id}
                     type="button"
                     onClick={() => onSelectItem(item.id, item.label)}
-                    className={`flex items-center gap-2.5 px-2.5 py-1.5 rounded-lg text-xs font-medium transition-all text-left cursor-pointer ${
+                    className={`flex items-center gap-2.5 px-2.5 py-1.5 rounded-lg text-xs font-medium transition-colors text-left cursor-pointer ${
                       isActive
                         ? 'bg-[#EBF3FE] text-[#2563EB] font-semibold'
                         : 'text-slate-700 hover:bg-slate-200/50 hover:text-slate-900'
@@ -143,7 +143,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
           </div>
 
           {/* Bottom Helen Keller Quote Card */}
-          <div className="mt-3 p-2.5 rounded-xl bg-white border border-slate-200/70 shadow-2xs">
+          <div className="mt-3 p-2.5 rounded-xl bg-white border border-slate-200/70">
             <p className="text-[11px] text-slate-700 italic leading-snug">
               "Alone we can do so little; together we can do so much."
             </p>

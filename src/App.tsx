@@ -32,7 +32,14 @@ export function App() {
     );
   };
 
-  const handleCardAction = (_cardId: string, title: string) => {
+  const handleCardAction = (cardId: string, title: string) => {
+    if (cardId === 'whatsapp') {
+      addToast(
+        'WhatsApp Community',
+        'WhatsApp community invitation link will be activated soon!'
+      );
+      return;
+    }
     addToast(
       `Exploring ${title}`,
       `The ${title} module is currently being finalized for students.`
@@ -56,9 +63,9 @@ export function App() {
         onSelectItem={handleNavSelect}
       />
 
-      {/* Main Content Area */}
+      {/* Main Content Area (footer removed, clean full height) */}
       <main className="flex-1 h-full overflow-y-auto flex flex-col justify-between">
-        <div className="max-w-5xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-2 sm:py-3 flex-1 flex flex-col justify-between">
+        <div className="max-w-5xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-2 sm:py-3.5 flex-1 flex flex-col justify-between">
           <div>
             {/* Top Hero Banner */}
             <HeroSection
@@ -66,21 +73,16 @@ export function App() {
               onToggleSidebar={() => setIsSidebarOpen(true)}
             />
 
-            {/* Research Journey Milestone Flow */}
+            {/* Research Journey Milestone Flow in subtle blue card */}
             <ResearchJourney onStepClick={handleJourneyStepClick} />
 
-            {/* Resource & Tools Cards */}
+            {/* Resource & Tools Cards (including pastel green WhatsApp card) */}
             <ResourceGrid onCardAction={handleCardAction} />
           </div>
 
-          {/* Bottom Highlights (3 Columns: Announcements, WhatsApp, Mission) */}
+          {/* Bottom Highlights (Announcements, Upcoming Events, Mission) */}
           <BottomHighlights onActionClick={handleBottomAction} />
         </div>
-
-        {/* Minimal Footer */}
-        <footer className="w-full border-t border-slate-100 py-2 text-center text-[11px] text-slate-500 shrink-0">
-          <p>© {new Date().getFullYear()} RS4S Hub — Research by Students, for Students. All rights reserved.</p>
-        </footer>
       </main>
     </div>
   );
