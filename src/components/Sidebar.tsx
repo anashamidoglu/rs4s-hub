@@ -29,7 +29,12 @@ export const Sidebar: React.FC<SidebarProps> = ({
 }) => {
   const primaryNavItems = [
     { id: 'start-here', label: 'Start Here', icon: Home },
-    { id: 'learn', label: 'Learn', icon: Brain },
+    {
+      id: 'learn',
+      label: 'Learn',
+      icon: Brain,
+      href: 'https://drive.google.com/drive/u/0/folders/1U__ExT8EMbE_uPBBLjQPmTaGAxLOwBZX',
+    },
     { id: 'connect', label: 'Connect', icon: Users },
     { id: 'do-research', label: 'Do Research', icon: FlaskConical },
     { id: 'opportunities', label: 'Opportunities Hub', icon: Briefcase },
@@ -89,16 +94,33 @@ export const Sidebar: React.FC<SidebarProps> = ({
               {primaryNavItems.map((item) => {
                 const Icon = item.icon;
                 const isActive = activeItem === item.id;
+                const itemClass = `flex items-center gap-2.5 px-2.5 py-1.5 rounded-lg text-xs font-medium transition-colors text-left cursor-pointer ${
+                  isActive
+                    ? 'bg-[#EBF3FE] text-[#2563EB] font-semibold'
+                    : 'text-slate-700 hover:bg-slate-200/50 hover:text-slate-900'
+                }`;
+
+                if (item.href) {
+                  return (
+                    <a
+                      key={item.id}
+                      href={item.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={itemClass}
+                    >
+                      <Icon className="w-3.5 h-3.5 shrink-0 text-slate-500" />
+                      <span className="truncate">{item.label}</span>
+                    </a>
+                  );
+                }
+
                 return (
                   <button
                     key={item.id}
                     type="button"
                     onClick={() => onSelectItem(item.id, item.label)}
-                    className={`flex items-center gap-2.5 px-2.5 py-1.5 rounded-lg text-xs font-medium transition-colors text-left cursor-pointer ${
-                      isActive
-                        ? 'bg-[#EBF3FE] text-[#2563EB] font-semibold'
-                        : 'text-slate-700 hover:bg-slate-200/50 hover:text-slate-900'
-                    }`}
+                    className={itemClass}
                   >
                     <Icon
                       className={`w-3.5 h-3.5 shrink-0 ${

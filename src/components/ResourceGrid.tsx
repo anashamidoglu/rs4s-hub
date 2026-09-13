@@ -14,6 +14,7 @@ interface ResourceCard {
   title: string;
   description: string;
   buttonText: string;
+  href?: string;
   icon?: React.ElementType;
   isWhatsApp?: boolean;
   cardBg: string;
@@ -36,6 +37,7 @@ export const ResourceGrid: React.FC<ResourceGridProps> = ({ onCardAction }) => {
       title: 'Learn',
       description: 'Build your research knowledge with videos, guides and learning pathways.',
       buttonText: 'Explore Learn',
+      href: 'https://drive.google.com/drive/u/0/folders/1U__ExT8EMbE_uPBBLjQPmTaGAxLOwBZX',
       icon: Brain,
       cardBg: 'bg-[#F4F8FD]',
       cardBorder: 'border-[#D9E7F9]',
@@ -170,16 +172,28 @@ export const ResourceGrid: React.FC<ResourceGridProps> = ({ onCardAction }) => {
           </p>
         </div>
 
-        {/* Action Button */}
+        {/* Action Button / Link */}
         <div className="mt-2.5 pt-0.5">
-          <button
-            type="button"
-            onClick={() => onCardAction(card.id, card.title)}
-            className={`inline-flex items-center gap-1 px-2.5 py-1 rounded-md border bg-white/70 text-[10px] sm:text-[11px] font-semibold ${card.btnText} ${card.btnBorder} ${card.btnHover} transition-colors cursor-pointer`}
-          >
-            <span>{card.buttonText}</span>
-            <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
-          </button>
+          {card.href ? (
+            <a
+              href={card.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`inline-flex items-center gap-1 px-2.5 py-1 rounded-md border bg-white/70 text-[10px] sm:text-[11px] font-semibold ${card.btnText} ${card.btnBorder} ${card.btnHover} transition-colors cursor-pointer`}
+            >
+              <span>{card.buttonText}</span>
+              <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
+            </a>
+          ) : (
+            <button
+              type="button"
+              onClick={() => onCardAction(card.id, card.title)}
+              className={`inline-flex items-center gap-1 px-2.5 py-1 rounded-md border bg-white/70 text-[10px] sm:text-[11px] font-semibold ${card.btnText} ${card.btnBorder} ${card.btnHover} transition-colors cursor-pointer`}
+            >
+              <span>{card.buttonText}</span>
+              <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
+            </button>
+          )}
         </div>
       </div>
     );
